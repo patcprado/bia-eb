@@ -1,2 +1,2 @@
 ./build.sh
-eb deploy --staged --profile default
+eb deploy --staged
