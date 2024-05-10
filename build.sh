@@ -13,5 +13,5 @@ rm .env 2> /dev/null
 checar_ultimo_comando
 rm bia-versao.zip
 zip -r bia-versao.zip docker-compose.yml
-git checkout docker-compose.yml
+# comentado pois o code pipeline olha esse arquivo git checkout docker-compose.yml
 rm .env 2> /dev/null

@@ -1,27 +1,10 @@
-version: "3"
 services:
   server:
-    build: .
+    env_file: .env
     container_name: bia
+    image: 654654321982.dkr.ecr.us-east-1.amazonaws.com/bia:571001d
     ports:
-      - 3001:8080
-    links:
-      - database
-    environment:
-      DB_USER: postgres
-      DB_PWD: postgres
-      DB_HOST: database
-      DB_PORT: 5432
-  database:
-    image: postgres:16.1
-    container_name: database
-    environment:
-      - "POSTGRES_USER=postgres"
-      - "POSTGRES_PASSWORD=postgres"
-      - "POSTGRES_DB=bia"
-    ports:
-      - 5433:5432
-    volumes:
-      - db:/var/lib/postgresql/data
-volumes:
-  db:
+      - mode: ingress
+        target: 8080
+        published: "80"
+        protocol: tcp
